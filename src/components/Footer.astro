@@ -1,9 +1,13 @@
-<footer class="shell mt-20 flex flex-col justify-between gap-4 border-t border-line py-7 text-xs text-muted sm:flex-row">
-  <p>Una buena base. Todo lo que viene, lo construyes tú.</p>
-  <a
-    class="font-mono hover:text-accent-dark"
-    href="https://docs.astro.build/es/"
-  >
-    Documentación de Astro <span aria-hidden="true">↗</span>
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="shell footer">
+  <a class="brand" href="/" aria-label="Daniel Balderas, inicio">
+    db<span>.</span>
+  </a>
+  <p>© {year} Daniel Balderas · Hecho con intención, en México.</p>
+  <a href="#contenido">
+    Volver arriba <span aria-hidden="true">↑</span>
   </a>
 </footer>

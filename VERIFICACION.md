@@ -1,3 +1,25 @@
+# Verificación del portafolio
+
+Fecha: 16 de octubre de 2026. Rama: `feat/portafolio-daniel`.
+
+- Node.js 24.22.0 y npm 11.19.1.
+- `npm ci`: instalación completada, 434 paquetes, cero vulnerabilidades reportadas.
+- `npm run format`: formato aplicado con Prettier y orden de clases Tailwind.
+- `npm run validate`: tipos, lint, formato y generación estática completados. Astro: cero errores, advertencias e indicaciones.
+- Vista previa: respuesta HTTP 200, revisión visual en navegador de escritorio y a 390 px mediante un iframe local de QA, eliminado antes del build final.
+- Filtros: Todos muestra 3 conceptos, Aplicaciones muestra 2 y Sitios web muestra 1. Verificados con ratón y con Tab/Enter.
+- Verificados la navegación a Proyectos y el desplegable de descripción. Enlaces de correo, LinkedIn y GitHub inspeccionados en el árbol de accesibilidad.
+- CV: copia binariamente idéntica al PDF original, verificada con SHA-256. Disponible en `/daniel-balderas-cv.pdf`.
+- El contenido se genera en HTML; React hidrata solo los filtros de proyectos. No se agregaron dependencias ni adaptadores; `package-lock.json` se conserva.
+- No se ejecutaron GitHub Actions ni un despliegue real en Vercel. No hay URL de producción verificada.
+- No se realizó auditoría con lector de pantalla ni medición Lighthouse; el lint y la revisión visual no sustituyen esas pruebas.
+
+Incidencia local: `npm ci` encontró una dependencia nativa bloqueada. Se conservó la instalación previa en `.qa/dependencies-before-install` y se reinstaló desde el lockfile. La carpeta de respaldo está ignorada y no forma parte de la entrega.
+
+A continuación se conserva el registro anterior de la plantilla como referencia histórica; sus resultados no corresponden a esta implementación.
+
+---
+
 # Verificación de la plantilla
 
 Fecha: 16 de octubre de 2026. Entorno: Windows y PowerShell.

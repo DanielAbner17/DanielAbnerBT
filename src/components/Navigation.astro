@@ -1,29 +1,19 @@
 ---
-import Mark from '../assets/mark.svg';
+import { profile } from '../data/portfolio';
 ---
 
-<header class="shell flex flex-wrap items-center justify-between gap-5 border-b border-line py-6">
-  <a href="/" class="flex items-center gap-3" aria-label="Base, ir al inicio">
-    <Mark width="36" height="36" aria-hidden="true" />
-    <span class="text-xl font-bold tracking-tight">
-      base<span class="text-accent">.</span>
-    </span>
-    <span class="hidden border-l border-line pl-3 text-xs text-muted sm:block">
-      Plantilla web
-    </span>
-  </a>
-  <nav
-    aria-label="Navegación principal"
-    class="flex flex-wrap items-center gap-6 text-sm font-medium"
-  >
-    <a class="hover:text-accent-dark" href="/#stack">
-      El stack
+<header class="site-header">
+  <div class="shell header-inner">
+    <a href="/" class="brand" aria-label="Daniel Balderas, inicio">
+      db<span>.</span>
     </a>
-    <a class="hover:text-accent-dark" href="/#demo">
-      Demo
+    <nav aria-label="Navegación principal">
+      <a href="/#experiencia">Experiencia</a>
+      <a href="/#proyectos">Proyectos</a>
+      <a href="/#sobre-mi">Sobre mí</a>
+    </nav>
+    <a class="header-contact" href={`mailto:${profile.email}`}>
+      Hablemos <span aria-hidden="true">↗</span>
     </a>
-    <a class="hover:text-accent-dark" href="/#primeros-pasos">
-      Primeros pasos <span aria-hidden="true">↗</span>
-    </a>
-  </nav>
+  </div>
 </header>
