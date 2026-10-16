@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Counter from '../components/Counter';
+
+const stack = [
+  {
+    number: '01',
+    name: 'Astro',
+    role: 'La estructura',
+    detail:
+      'Páginas estáticas y menos JavaScript. Velocidad desde el primer momento.',
+    badge: '.astro',
+    color: 'bg-orange-100 text-orange-900',
+  },
+  {
+    number: '02',
+    name: 'React',
+    role: 'La interacción',
+    detail: 'Componentes con estado, justo donde tu interfaz los necesita.',
+    badge: '.tsx',
+    color: 'bg-sky-100 text-sky-900',
+  },
+  {
+    number: '03',
+    name: 'Tailwind CSS',
+    role: 'El estilo',
+    detail: 'Un sistema visual flexible, adaptable y fácil de hacer tuyo.',
+    badge: '.css',
+    color: 'bg-teal-100 text-teal-900',
+  },
+  {
+    number: '04',
+    name: 'TypeScript',
+    role: 'La confianza',
+    detail: 'Tipos estrictos para detectar errores mientras construyes.',
+    badge: '.ts',
+    color: 'bg-indigo-100 text-indigo-900',
+  },
+];
+---
+
+<BaseLayout title="Base — Tu próximo proyecto empieza aquí">
+  <section
+    class="shell grid items-center gap-12 pt-16 pb-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16 lg:pt-24 lg:pb-20"
+    aria-labelledby="hero-title"
+  >
+    <div>
+      <p class="eyebrow mb-6 flex items-center gap-2 text-muted">
+        <span class="size-1.5 rounded-full bg-accent" aria-hidden="true"></span>{' '}
+        Menos configuración. Más creación.
+      </p>
+      <h1
+        id="hero-title"
+        class="max-w-2xl text-[clamp(2.9rem,5.4vw,4.7rem)] leading-[1.06] font-semibold tracking-[-0.055em]"
+      >
+        Tu próximo proyecto
+        <br />
+        empieza <span class="text-accent">aquí.</span>
+      </h1>
+      <p class="mt-6 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
+        Una base ligera para tus ideas. Astro, React, Tailwind y TypeScript,
+        trabajando juntos desde el primer commit.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-6">
+        <a class="button-primary" href="#primeros-pasos">
+          Empieza a construir <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          href="#demo"
+          class="py-3 text-sm font-semibold hover:text-accent-dark"
+        >
+          Explorar la demo <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <p class="mt-7 font-mono text-[11px] text-muted">
+        Generación estática{' '}
+        <span class="mx-2" aria-hidden="true">
+          /
+        </span>{' '}
+        Preparada para Vercel
+      </p>
+    </div>
+    <div
+      class="relative rounded-2xl border border-line bg-[#efeee7] p-6 sm:p-8"
+      aria-label="Arquitectura: Astro genera el sitio y React aporta interactividad"
+    >
+      <div class="flex items-center justify-between">
+        <span class="eyebrow text-muted">Una base, cuatro piezas</span>
+        <span class="font-mono text-xs text-muted" aria-hidden="true">
+          [ + ]
+        </span>
+      </div>
+      <div class="my-8 grid grid-cols-2 gap-3" aria-hidden="true">
+        <div class="flex aspect-[1.25] items-center justify-center rounded-xl border border-line bg-paper text-4xl font-bold tracking-tighter">
+          A<span class="text-accent">↗</span>
+        </div>
+        <div class="flex aspect-[1.25] items-center justify-center rounded-xl border border-line bg-paper font-mono text-4xl text-[#286277]">
+          {'{ }'}
+        </div>
+        <div class="flex aspect-[1.25] items-center justify-center rounded-xl border border-line bg-paper font-mono text-5xl text-[#27756d]">
+          ≈
+        </div>
+        <div class="flex aspect-[1.25] items-center justify-center rounded-xl bg-ink font-mono text-3xl font-semibold text-paper">
+          TS<span class="text-accent">.</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-between border-t border-[#d6d8ce] pt-4 font-mono text-[10px] text-muted">
+        <span>Contenido → Interacción → Estilo</span>
+        <span aria-hidden="true">✳</span>
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="stack"
+    class="shell border-t border-line pt-9"
+    aria-labelledby="stack-title"
+  >
+    <div class="mb-7 flex flex-wrap items-end justify-between gap-3">
+      <h2 id="stack-title" class="text-2xl font-semibold tracking-tight">
+        Cada herramienta, en su lugar.
+      </h2>
+      <p class="eyebrow text-muted">El stack / 01</p>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {stack.map((item) => (
+        <article class="rounded-xl border border-line bg-white/60 p-6">
+          <div class="mb-7 flex items-center justify-between">
+            <span class="font-mono text-xs text-muted">{item.number}</span>
+            <span
+              class:list={[
+                'rounded-md px-2 py-1 font-mono text-xs',
+                item.color,
+              ]}
+            >
+              {item.badge}
+            </span>
+          </div>
+          <p class="mb-1 text-xs text-muted">{item.role}</p>
+          <h3 class="text-lg font-semibold tracking-tight">{item.name}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">{item.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="demo" class="shell mt-16" aria-labelledby="demo-title">
+    <div class="mb-7 flex flex-wrap items-end justify-between gap-3">
+      <h2 id="demo-title" class="text-2xl font-semibold tracking-tight">
+        Pruébalo. Ya está conectado.
+      </h2>
+      <p class="eyebrow text-muted">En acción / 02</p>
+    </div>
+    <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+      <Counter client:load />
+      <div class="flex min-w-0 flex-col rounded-2xl bg-ink p-6 text-paper sm:p-8">
+        <div class="mb-7 flex items-center justify-between">
+          <span class="eyebrow text-[#b8bcae]">Tu espacio de trabajo</span>
+          <span class="flex gap-1.5" aria-hidden="true">
+            <span class="size-2 rounded-full bg-[#6b7061]"></span>
+            <span class="size-2 rounded-full bg-[#6b7061]"></span>
+            <span class="size-2 rounded-full bg-[#6b7061]"></span>
+          </span>
+        </div>
+        <pre
+          class="overflow-x-auto font-mono text-sm leading-8"
+          aria-label="Estructura del proyecto"
+        ><code><span class="text-[#f3a78c]">src/</span>{'\n'}├── pages/       <span class="text-[#b8bcae]"># tus rutas</span>{'\n'}├── layouts/     <span class="text-[#b8bcae]"># la estructura</span>{'\n'}├── components/  <span class="text-[#b8bcae]"># piezas reutilizables</span>{'\n'}├── styles/      <span class="text-[#b8bcae]"># tu identidad</span>{'\n'}└── assets/      <span class="text-[#b8bcae]"># recursos locales</span></code></pre>
+        <p class="mt-auto border-t border-white/15 pt-5 text-sm leading-relaxed text-[#c9cdbe]">
+          Una estructura pequeña para empezar.
+          <br />
+          Espacio para crecer a tu ritmo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="primeros-pasos"
+    class="shell mt-16 rounded-2xl border border-line bg-[#eeeee5] p-6 sm:p-9"
+    aria-labelledby="start-title"
+  >
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <p class="eyebrow text-muted">Tu siguiente paso / 03</p>
+      <span class="font-mono text-xs text-muted">localhost:4321</span>
+    </div>
+    <div class="mt-6 grid items-start gap-8 lg:grid-cols-2">
+      <div>
+        <h2 id="start-title" class="text-3xl font-semibold tracking-tight">
+          De base a tu proyecto.
+        </h2>
+        <p class="mt-3 max-w-sm text-sm leading-relaxed text-muted">
+          Instala, inicia y cambia esta página por tu idea. Encontrarás la guía
+          completa de GitHub y Vercel en el README.
+        </p>
+      </div>
+      <ol class="space-y-3 text-sm">
+        <li class="flex flex-wrap items-center justify-between gap-2 border-b border-[#d4d7c9] pb-3">
+          <span>
+            <span class="mr-3 font-mono text-xs text-muted">01</span> Instala
+            las dependencias
+          </span>
+          <code class="rounded-md bg-white px-3 py-1.5 text-xs">npm ci</code>
+        </li>
+        <li class="flex flex-wrap items-center justify-between gap-2 border-b border-[#d4d7c9] pb-3">
+          <span>
+            <span class="mr-3 font-mono text-xs text-muted">02</span> Inicia el
+            entorno local
+          </span>
+          <code class="rounded-md bg-white px-3 py-1.5 text-xs">
+            npm run dev
+          </code>
+        </li>
+        <li class="flex flex-wrap items-center justify-between gap-2">
+          <span>
+            <span class="mr-3 font-mono text-xs text-muted">03</span> Verifica
+            antes de publicar
+          </span>
+          <code class="rounded-md bg-white px-3 py-1.5 text-xs">
+            npm run validate
+          </code>
+        </li>
+      </ol>
+    </div>
+  </section>
+</BaseLayout>

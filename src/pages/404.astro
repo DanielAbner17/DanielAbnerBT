@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada — Base"
+  description="No encontramos esta página. Vuelve al inicio para seguir explorando."
+  noindex
+>
+  <section class="shell flex min-h-[65vh] flex-col items-center justify-center py-20 text-center">
+    <p class="eyebrow text-accent-dark">Ruta no encontrada</p>
+    <p
+      class="mt-5 font-mono text-9xl font-semibold tracking-tighter"
+      aria-hidden="true"
+    >
+      404<span class="text-accent">.</span>
+    </p>
+    <h1 class="mt-6 text-3xl font-semibold tracking-tight sm:text-4xl">
+      Aquí todavía no hay nada.
+    </h1>
+    <p class="mt-4 max-w-md leading-relaxed text-muted">
+      Puede que la página haya cambiado de dirección o que el enlace esté
+      incompleto.
+    </p>
+    <a href="/" class="button-primary mt-8">
+      <span aria-hidden="true">←</span> Volver al inicio
+    </a>
+  </section>
+</BaseLayout>
