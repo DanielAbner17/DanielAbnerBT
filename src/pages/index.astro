@@ -1,42 +1,60 @@
 ---
+import { Image } from 'astro:assets';
+import portrait from '../assets/daniel-balderas.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectGallery from '../components/ProjectGallery';
-import { profile, experience } from '../data/portfolio';
+import { profile, experience, contributions } from '../data/portfolio';
+
 const skills = [
   {
-    title: 'Interfaces & experiencias',
+    title: 'Frontend',
     detail:
-      'Componentes reutilizables e interfaces que se adaptan a cada pantalla.',
+      'Construyo interfaces y organizo componentes que se pueden reutilizar.',
     items: [
       'React',
       'Next.js',
       'Astro',
       'TypeScript',
       'JavaScript',
-      'HTML & CSS',
+      'HTML5 & CSS3',
     ],
   },
   {
-    title: 'Diseño que se implementa',
-    detail: 'Del detalle visual a una experiencia consistente y accesible.',
+    title: 'Interfaces',
+    detail:
+      'Adapto la experiencia visual a cada pantalla y necesidad de contenido.',
     items: [
       'Tailwind CSS',
       'Styled Components',
-      'Responsive design',
-      'Lighthouse',
-      'Core Web Vitals',
+      'Bootstrap',
+      'Diseño responsive',
     ],
   },
   {
-    title: 'Del código a producción',
-    detail: 'Servicios conectados y entregas que se pueden mantener.',
+    title: 'Servicios & contenido',
+    detail: 'Integro datos, autenticación y herramientas de gestión.',
     items: [
       'Node.js',
       'GraphQL',
       'Firebase',
       'WordPress',
+      'PHP',
+      'Google Maps API',
+      'GA4',
+    ],
+  },
+  {
+    title: 'Entrega & calidad',
+    detail:
+      'Valido, documento y doy seguimiento a los cambios hasta producción.',
+    items: [
       'Git & GitHub',
       'Vercel',
+      'Lighthouse',
+      'Core Web Vitals',
+      'QA manual',
+      'Scrum / Kanban',
+      'Trello',
     ],
   },
 ];
@@ -44,110 +62,167 @@ const skills = [
 
 <BaseLayout
   title="Daniel Balderas — Frontend Developer"
-  description="Desarrollador frontend en México. Creo sitios y aplicaciones con React, TypeScript y Astro, con foco en rendimiento, componentes reutilizables y experiencias claras."
+  description="Soy Daniel Balderas, desarrollador frontend en México. Defino soluciones, construyo interfaces con React, TypeScript y Astro e integro servicios para llevarlas a producción."
 >
   <section class="shell hero" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="availability">
-        <span></span> Disponible para trabajo remoto
+        <span aria-hidden="true"></span> Disponible para trabajo remoto
       </p>
       <p class="hero-intro">
-        Hola, soy Daniel Balderas <span aria-hidden="true">↗</span>
+        Hola, soy <strong>Daniel Balderas</strong>{' '}
+        <span aria-hidden="true">↗</span>
+      </p>
+      <p class="hero-role">
+        Frontend Developer <span aria-hidden="true">/</span> React · TypeScript
+        · Astro
       </p>
       <h1 id="hero-title">
-        Ideas claras.
+        Defino. Construyo.
         <br />
-        Interfaces <span>que conectan.</span>
+        <span>Llevo a producción.</span>
       </h1>
       <p class="hero-description">
-        Desarrollador <strong>frontend</strong>. Transformo ideas en
-        experiencias web intuitivas, rápidas y hechas para las personas.
+        Asumo el ciclo completo de sitios y aplicaciones web:{' '}
+        <strong>
+          defino la solución técnica, construyo las interfaces e integro los
+          servicios
+        </strong>
+        . Trabajo con autonomía y comunicación directa con clientes y áreas de
+        negocio.
       </p>
       <div class="hero-actions">
         <a class="button-primary" href="#proyectos">
           Explorar proyectos <span aria-hidden="true">↗</span>
         </a>
-        <a class="text-link" href={profile.cv} download>
+        <a class="button-secondary" href={profile.cv} download>
           Descargar CV <span aria-hidden="true">↓</span>
         </a>
       </div>
+      <div class="hero-socials" aria-label="Contacto y perfiles profesionales">
+        <a href={`mailto:${profile.email}`}>
+          <span aria-hidden="true">✉</span> Escríbeme
+        </a>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">
+          LinkedIn <span aria-hidden="true">↗</span>
+        </a>
+        <a href={profile.github} target="_blank" rel="noreferrer">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+      </div>
       <p class="hero-location">
-        <span aria-hidden="true">◎</span> Montemorelos, Nuevo León, México{' '}
-        <span class="location-line"></span> Abierto al mundo
+        <span aria-hidden="true">◎</span> Montemorelos, Nuevo León, México
       </p>
     </div>
-    <div
-      class="hero-art"
-      aria-label="Ilustración de una interfaz: Daniel Balderas, desarrollador frontend"
-    >
-      <div class="art-grid"></div>
-      <span class="art-coordinate">25°11′ N / 99°49′ W</span>
-      <div class="identity-card">
-        <div class="identity-top">
-          <span>DESARROLLADOR FRONTEND</span>
-          <span>↗</span>
-        </div>
-        <div class="monogram">
-          d<span>b</span>
-          <i>.</i>
-        </div>
-        <div class="identity-bottom">
-          <b>Daniel Balderas</b>
-          <span>Construyendo para la web.</span>
-        </div>
+    <figure class="portrait-composition">
+      <div class="portrait-halo" aria-hidden="true"></div>
+      <span class="portrait-coordinate" aria-hidden="true">
+        DESDE MÉXICO, PARA LA WEB
+      </span>
+      <div class="portrait-frame">
+        <Image
+          src={portrait}
+          alt="Daniel Abner Balderas Tovar, desarrollador frontend"
+          width={460}
+          height={460}
+          widths={[320, 460]}
+          sizes="(max-width: 760px) 320px, 380px"
+          format="webp"
+          quality={90}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <span class="portrait-corner corner-top" aria-hidden="true"></span>
+        <span class="portrait-corner corner-bottom" aria-hidden="true"></span>
       </div>
-      <span class="floating-tag tag-react">
-        <span>✳</span> React
-      </span>
-      <span class="floating-tag tag-ts">
-        <b>TS</b> TypeScript
-      </span>
-      <span class="floating-tag tag-astro">
-        <b>A</b> Astro
-      </span>
-      <div class="art-caption">
-        <span class="code-mark">&lt;/&gt;</span>
-        <span>
-          Un poco de lógica.
-          <br />
-          <b>Mucho de intención.</b>
+      <figcaption class="portrait-caption">
+        <span class="portrait-caption-icon" aria-hidden="true">
+          &lt;/&gt;
         </span>
-        <span aria-hidden="true">✳</span>
-      </div>
-    </div>
+        <div>
+          <b>Daniel Abner Balderas Tovar</b>
+          <span>Ingeniero en Sistemas Computacionales</span>
+        </div>
+        <span class="portrait-caption-star" aria-hidden="true">
+          ✳
+        </span>
+      </figcaption>
+      <span class="portrait-note" aria-hidden="true">
+        Del requerimiento al lanzamiento. <span>↗</span>
+      </span>
+    </figure>
   </section>
-  <div class="stack-strip">
+
+  <div class="stack-strip" aria-label="Tecnologías principales">
     <div class="shell">
-      <span>MI KIT PARA CREAR</span>
+      <span>CON QUÉ CONSTRUYO</span>
       <span>React</span>
-      <span class="strip-star">✳</span>
+      <span class="strip-star" aria-hidden="true">
+        ✳
+      </span>
       <span>TypeScript</span>
-      <span class="strip-star">✳</span>
+      <span class="strip-star" aria-hidden="true">
+        ✳
+      </span>
       <span>Astro</span>
-      <span class="strip-star">✳</span>
+      <span class="strip-star" aria-hidden="true">
+        ✳
+      </span>
       <span>Tailwind CSS</span>
-      <span class="strip-star">✳</span>
+      <span class="strip-star" aria-hidden="true">
+        ✳
+      </span>
       <span>Firebase</span>
     </div>
   </div>
+
+  <section
+    class="shell section contributions-section"
+    aria-labelledby="contributions-title"
+  >
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">01 / APORTACIONES</p>
+        <h2 id="contributions-title">
+          Lo que he <span>construido.</span>
+        </h2>
+      </div>
+      <p>
+        Soluciones concretas.
+        <br />
+        Decisiones que facilitan el trabajo.
+      </p>
+    </div>
+    <div class="contributions-grid">
+      {contributions.map((item) => (
+        <article class="contribution-card">
+          <p class="contribution-label">{item.label}</p>
+          <p class="contribution-figure">{item.figure}</p>
+          <h3>{item.title}</h3>
+          <p class="contribution-description">{item.description}</p>
+          <p class="contribution-context">{item.context}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
   <section
     id="experiencia"
-    class="shell section"
+    class="shell section experience-section"
     aria-labelledby="experience-title"
   >
     <div class="section-heading">
       <div>
-        <p class="eyebrow">01 / EL RECORRIDO</p>
+        <p class="eyebrow">02 / EL RECORRIDO</p>
         <h2 id="experience-title">
-          Experiencia que
-          <br />
-          se convierte en <span>soluciones.</span>
+          De los requerimientos
+          <br />a <span>la entrega.</span>
         </h2>
       </div>
       <p>
-        De sitios corporativos a plataformas internas.
+        Sitios corporativos, educación y salud.
         <br />
-        Siempre con las personas en el centro.
+        Así he asumido cada proyecto.
       </p>
     </div>
     <div class="experience-list">
@@ -155,7 +230,8 @@ const skills = [
         <article class="experience-row">
           <div class="experience-date">
             <span
-              class:list={['timeline-dot', { 'dot-current': index === 0 }]}
+              class:list={['timeline-dot', { 'dot-highlight': index === 0 }]}
+              aria-hidden="true"
             ></span>
             <span>{job.period}</span>
             <p>{job.company}</p>
@@ -181,6 +257,7 @@ const skills = [
       ))}
     </div>
   </section>
+
   <section
     id="proyectos"
     class="shell section projects-section"
@@ -188,15 +265,15 @@ const skills = [
   >
     <div class="section-heading">
       <div>
-        <p class="eyebrow">02 / IDEAS EN PANTALLA</p>
+        <p class="eyebrow">03 / IDEAS EN PANTALLA</p>
         <h2 id="projects-title">
-          Código con <span>propósito.</span>
+          Un espacio para <span>explorar.</span>
         </h2>
       </div>
       <p>
-        Una muestra de lo que se puede construir.
+        Conceptos de interfaz, por ahora.
         <br />
-        Este espacio pronto tendrá mis proyectos reales.
+        Mis casos reales llegarán a este espacio.
       </p>
     </div>
     <ProjectGallery client:load />
@@ -207,47 +284,35 @@ const skills = [
       </p>
     </noscript>
   </section>
+
   <section
     id="sobre-mi"
     class="shell section about-section"
     aria-labelledby="about-title"
   >
-    <div class="about-visual">
-      <p class="eyebrow">UN POCO MÁS HUMANO</p>
-      <div class="about-symbol" aria-hidden="true">
-        ✳
-      </div>
-      <p>
-        Ingeniería para resolver.
-        <br />
-        <span>Curiosidad para crear.</span>
-      </p>
-      <div class="about-coordinate">
-        MÉXICO <span>→</span> DONDE ESTÉ EL RETO
-      </div>
-    </div>
     <div class="about-copy">
-      <p class="eyebrow">03 / DETRÁS DEL CÓDIGO</p>
+      <p class="eyebrow">04 / DETRÁS DEL CÓDIGO</p>
       <h2 id="about-title">
-        Soy Daniel.
+        Me gusta construir.
         <br />
-        <span>Me gusta construir.</span>
+        <span>Y llevarlo hasta el final.</span>
       </h2>
       <p>
-        Soy ingeniero en Sistemas Computacionales por la Universidad de
-        Montemorelos. He trabajado en experiencias para educación, salud,
-        comercio electrónico y sitios corporativos.
+        Soy <strong>Daniel Abner Balderas Tovar</strong>, ingeniero en Sistemas
+        Computacionales por la Universidad de Montemorelos. He desarrollado
+        soluciones para comercio electrónico, educación, salud y sitios
+        corporativos.
       </p>
       <p>
-        Disfruto convertir necesidades complejas en interfaces claras. Me
-        involucro desde la definición de requisitos hasta el despliegue:
-        componentes que se reutilizan, rendimiento que se cuida y detalles que
-        hacen más fácil usar un producto.
+        Mi trabajo empieza al entender qué necesita resolver un proyecto. Defino
+        el alcance técnico, construyo la interfaz y conecto los servicios
+        necesarios, con comunicación directa con quienes van a utilizar la
+        solución.
       </p>
       <p>
-        También he coordinado proyectos y equipos en construcción residencial.
-        Esa experiencia me enseñó a planear, comunicar y llevar las ideas hasta
-        la entrega.
+        Además del desarrollo web, he coordinado proyectos residenciales.
+        Organizar prioridades, aclarar necesidades y dar seguimiento hasta la
+        entrega son prácticas que también llevo a mi trabajo como frontend.
       </p>
       <div class="about-facts">
         <span>
@@ -257,23 +322,61 @@ const skills = [
           Inglés <b>Intermedio</b>
         </span>
         <span>
-          Modalidad <b>Remoto</b>
+          Disponibilidad <b>Remoto · Tiempo completo</b>
         </span>
       </div>
       <a class="text-link" href={profile.cv} download>
-        Mi trayectoria completa <span aria-hidden="true">↗</span>
+        Ver mi trayectoria completa <span aria-hidden="true">↗</span>
       </a>
     </div>
+    <aside class="perspective-card" aria-labelledby="perspective-title">
+      <div class="perspective-top">
+        <span class="eyebrow">OTRA PERSPECTIVA</span>
+        <span aria-hidden="true">✳</span>
+      </div>
+      <h3 id="perspective-title">
+        Planear. Coordinar.
+        <br />
+        <em>Entregar.</em>
+      </h3>
+      <p class="perspective-intro">
+        Experiencia que complementa mi forma de trabajar.
+      </p>
+      <div class="additional-job">
+        <span>FEB 2026 — ACTUALIDAD</span>
+        <h4>Supervisor de obra residencial</h4>
+        <p>Proyecto privado · Montemorelos, México</p>
+        <p>
+          Coordino trabajos y avances de una ampliación residencial. Verifico la
+          ejecución conforme a planos y doy seguimiento a definiciones con la
+          dirección arquitectónica.
+        </p>
+      </div>
+      <div class="additional-job">
+        <span>JUL 2019 — DIC 2021</span>
+        <h4>Gerente de proyectos</h4>
+        <p>DFW Corp · Dallas, Texas</p>
+        <p>
+          Dirigí proyectos residenciales desde la planeación y presupuestación
+          hasta la entrega, coordinando equipos, alcance y comunicación con
+          clientes y especialistas.
+        </p>
+      </div>
+    </aside>
   </section>
+
   <section class="shell section skills-section" aria-labelledby="skills-title">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">04 / HERRAMIENTAS & CRITERIO</p>
+        <p class="eyebrow">05 / HERRAMIENTAS & CRITERIO</p>
         <h2 id="skills-title">
-          Mi stack, <span>con intención.</span>
+          Cada herramienta, <span>en su lugar.</span>
         </h2>
       </div>
-      <p>La herramienta adecuada para cada problema.</p>
+      <p>
+        Las tecnologías que uso
+        <br />a lo largo de una solución.
+      </p>
     </div>
     <div class="skills-grid">
       {skills.map((group, i) => (
@@ -292,18 +395,19 @@ const skills = [
       ))}
     </div>
   </section>
+
   <section
     id="contacto"
     class="shell contact-section"
     aria-labelledby="contact-title"
   >
     <div class="contact-top">
-      <p class="eyebrow">05 / LA SIGUIENTE IDEA</p>
+      <p class="eyebrow">06 / LA SIGUIENTE CONVERSACIÓN</p>
       <span aria-hidden="true">↗</span>
     </div>
-    <p>¿Un proyecto en mente? ¿Un lugar en tu equipo?</p>
+    <p>¿Buscas apoyo en un proyecto o un frontend para tu equipo?</p>
     <h2 id="contact-title">
-      Hagamos que <em>suceda.</em>
+      Hablemos de <em>lo que sigue.</em>
     </h2>
     <div class="contact-bottom">
       <a class="contact-email" href={`mailto:${profile.email}`}>
@@ -311,10 +415,10 @@ const skills = [
       </a>
       <div>
         <a href={profile.linkedin} target="_blank" rel="noreferrer">
-          LinkedIn ↗
+          LinkedIn <span aria-hidden="true">↗</span>
         </a>
         <a href={profile.github} target="_blank" rel="noreferrer">
-          GitHub ↗
+          GitHub <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>

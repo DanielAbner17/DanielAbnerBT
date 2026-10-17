@@ -1,3 +1,42 @@
+# Evolución local: fotografía y nuevo CV
+
+Fecha: 16 de octubre de 2026. Rama: `feat/portafolio-daniel`.
+
+- Se conservaron los cambios de configuración de Vercel que ya estaban pendientes al iniciar esta revisión.
+- Presentación con fotografía original, variantes WebP generadas por Astro, dimensiones explícitas y prioridad de carga. Acentos lima, iluminación ambiental, superficies y navegación fija con foco visible.
+- Contenido adaptado del nuevo CV en primera persona: autonomía técnica, ciclo completo y tres aportaciones destacadas. El 18 % se atribuye al cliente y conserva el periodo de cinco meses. La experiencia adicional mantiene empresas, funciones y fechas del PDF.
+- Nuevo CV en la misma ruta de descarga. HTTP local 200 y SHA-256 idéntico al archivo proporcionado. No se modificó el PDF original.
+- `npm run format` y `npm run validate` completados: tipos, lint, formato y build sin errores. Astro informa cero errores, advertencias e indicaciones.
+- Fotografía compilada en WebP: 320 y 460 px, aproximadamente 7 y 12 KB. Sin dependencias ni adaptadores nuevos. `package.json` y `package-lock.json` sin modificaciones.
+- Revisión visual en navegador de escritorio y en iframes de 390 y 320 px; el contenido útil fue de 375 y 305 px por las barras de desplazamiento. Sin desbordamiento horizontal tras corregir el ancho de las vistas de proyectos.
+- Teclado: Tab y Enter para saltar al contenido, acceder a proyectos, activar filtros y desplegar la explicación. Aplicaciones muestra 2 ejemplos y Sitios web muestra 1. Los enlaces conservan nombres y destinos correctos.
+- Enlaces de ancla y recursos locales comprobados contra `dist/index.html`. La fotografía compilada y el PDF están presentes. La página temporal de QA se retiró antes del build final.
+- `prefers-reduced-motion` contemplado en CSS; no se realizó emulación de esa preferencia ni auditoría con lector de pantalla o Lighthouse.
+- Capturas locales: `.qa/evolution-desktop.png` y `.qa/evolution-mobile.png`.
+- Entrega exclusivamente local: sin commit, push, ejecución de GitHub Actions ni despliegue nuevo en Vercel. La versión pública anterior no incluye esta revisión.
+
+Los siguientes registros son históricos y corresponden a etapas anteriores.
+
+---
+
+# Despliegue en Vercel
+
+Fecha: 16 de octubre de 2026.
+
+- Producción: https://daniel-balderas-portfolio.vercel.app
+- Proyecto: `danielabner17s-projects/daniel-balderas-portfolio`.
+- Despliegue final: `dpl_GEqBBfU1EJ7EsuSqp5B9NpBtqJZd`, estado `READY`, destino `production`.
+- Despliegue realizado con la CLI oficial de Vercel 64.4.0. El build remoto ejecutó `npm ci` y `npm run build` correctamente.
+- Configuración explícita en `vercel.json`: Astro, instalación con npm, build estático y salida `dist`. Sin adaptador nuevo.
+- `.vercelignore` excluye archivos de entorno y carpetas locales. La subida final contiene 35 archivos de proyecto.
+- `site` en Astro configurado con el dominio de producción. Verificación HTTP sin sesión: inicio 200, URL canónica correcta y CV 200.
+- `npm run validate` local volvió a pasar con los cambios de configuración: tipos, lint, formato y build.
+- Proyecto conectado al repositorio de GitHub. Los cambios locales de configuración no se han subido a GitHub. Este despliegue no confirma una ejecución de GitHub Actions ni una integración en `main`.
+
+Los siguientes registros corresponden a etapas anteriores a la publicación.
+
+---
+
 # Verificación del portafolio
 
 Fecha: 16 de octubre de 2026. Rama: `feat/portafolio-daniel`.

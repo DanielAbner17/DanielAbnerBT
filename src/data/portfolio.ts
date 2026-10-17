@@ -8,30 +8,58 @@ export const profile = {
   cv: '/daniel-balderas-cv.pdf',
 };
 
+export const contributions = [
+  {
+    label: '01 / UNA HERRAMIENTA PARA COLABORAR',
+    figure: '200+',
+    title: 'usuarios en una plataforma interna',
+    description:
+      'Diseñé y desarrollé una plataforma de mejora continua con autenticación, permisos por rol y contenido colaborativo.',
+    context: 'Grupo México Infraestructura',
+  },
+  {
+    label: '02 / UNA ARQUITECTURA COMPARTIDA',
+    figure: 'Una base.',
+    title: 'distintos sitios corporativos',
+    description:
+      'Estandaricé el frontend con Astro, TypeScript y Tailwind CSS. Creé componentes y plantillas para simplificar las actualizaciones entre sitios.',
+    context: 'Grupo México Infraestructura',
+  },
+  {
+    label: '03 / UNA MEJOR EXPERIENCIA DE COMPRA',
+    figure: '+18 %',
+    title: 'en ventas, reportado por el cliente',
+    description:
+      'Trabajé en navegación, rendimiento y flujo de compra de un e-commerce. El cliente registró ese crecimiento en cinco meses.',
+    context: 'Proyecto independiente · E-commerce',
+  },
+];
+
 export const experience = [
   {
     period: 'AGO 2022 — JUL 2025',
     company: 'Grupo México Infraestructura',
     role: 'Desarrollador frontend',
     description:
-      'Sitios corporativos y herramientas que simplifican el trabajo de las personas.',
+      'Lideré el desarrollo de sitios para centros comerciales, desde los requerimientos y la arquitectura hasta la validación y publicación.',
     points: [
-      'Arquitectura reutilizable con Astro, TypeScript y Tailwind CSS para sitios de centros comerciales.',
-      'Plataforma de mejora continua para más de 200 usuarios, con autenticación y acceso por roles.',
-      'Optimización web, integración de Google Maps, GA4 y Firebase, y despliegues en Vercel.',
+      'Integré Google Maps API, GA4 y Firebase para incorporar ubicación, analítica y servicios de datos.',
+      'Mejoré la carga y la visualización móvil con imágenes optimizadas y carga diferida, guiándome por Lighthouse y Core Web Vitals.',
+      'Automaticé los despliegues de producción y previsualización en Vercel, con reversión controlada de versiones.',
+      'Establecí un flujo de requerimientos, QA manual y documentación; organicé prioridades con prácticas Scrum y Kanban.',
     ],
     tags: ['Astro', 'TypeScript', 'React', 'Firebase'],
   },
   {
     period: '2017 — 2022',
-    company: 'Proyectos independientes',
-    role: 'Desarrollador web',
+    company: 'Proyectos para clientes',
+    role: 'Desarrollador web independiente',
     description:
-      'De la primera conversación con el cliente al lanzamiento y soporte del producto.',
+      'Encabecé proyectos de comercio electrónico, educación y salud: definí propuestas técnicas y alcance, y asumí desarrollo, despliegue y soporte.',
     points: [
-      'Plataforma educativa con React y Firebase para gestionar contenido personalizado.',
-      'Sistema de citas para salud con Node.js, GraphQL, calendarios y roles.',
-      'Mejoras de experiencia y compra en e-commerce; el cliente reportó un aumento de ventas del 18 % en cinco meses.',
+      'Creé una plataforma educativa con React y Firebase para administrar recursos mediante un sistema de contenido personalizado.',
+      'Desarrollé un sistema de citas médicas con Node.js, GraphQL y Firebase, integrando usuarios, calendarios y roles.',
+      'Construí temas personalizados de WordPress y adapté sitios HTML a PHP según las necesidades de gestión de contenido.',
     ],
     tags: ['React', 'Node.js', 'GraphQL', 'WordPress'],
   },
@@ -40,10 +68,10 @@ export const experience = [
     company: 'NETT · Monterrey',
     role: 'Desarrollador frontend',
     description:
-      'Sitios corporativos adaptables, con atención a la usabilidad y al SEO.',
+      'Desarrollé sitios corporativos responsive con WordPress a partir de las necesidades del cliente.',
     points: [
-      'Temas personalizados de WordPress, formularios y funciones de contenido.',
-      'Interfaces con HTML, CSS, JavaScript y PHP; colaboración con Git y Webpack.',
+      'Creé temas personalizados, formularios y funciones de contenido, incorporando mejoras de usabilidad y SEO.',
+      'Implementé interfaces con HTML, CSS, JavaScript y PHP; utilicé Git y Webpack en proyectos simultáneos.',
     ],
     tags: ['JavaScript', 'WordPress', 'PHP', 'Git'],
   },
