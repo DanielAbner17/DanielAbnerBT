@@ -1,4 +1,4 @@
-# Daniel Balderas · Portafolio frontend
+# Abner Tovar · Portafolio frontend
 
 Portafolio personal basado en Astro, React, Tailwind CSS 4 y TypeScript estricto. Generación estática, sin adaptadores ni dependencias nuevas. Diseño oscuro con acentos lima, fotografía personal, aportaciones destacadas y proyectos de ejemplo identificados como conceptos.
 
@@ -26,36 +26,44 @@ npm run dev
 
 ## Contenido y estructura
 
-- `src/data/portfolio.ts`: contacto, enlaces, aportaciones destacadas, experiencia y proyectos de ejemplo.
-- `src/assets/daniel-balderas.jpg`: fotografía original. `astro:assets` genera variantes WebP de 320 y 460 px, con dimensiones explícitas y carga prioritaria en la presentación.
-- `src/pages/index.astro`: presentación, trayectoria, sobre mí, tecnologías y contacto.
-- `src/components/ProjectGallery.tsx`: única isla hidratada; filtros con estado y vistas ilustrativas de los proyectos. El contenido completo se renderiza también en el servidor.
+- `src/data/portfolio.ts`: contacto, enlaces y experiencia resumida.
+- `src/data/projects.ts`: cuatro casos reales, textos, tecnologías y su alcance, enlaces, fuentes y fecha de capturas, los 16 centros comerciales y Loro Granada como proyecto histórico.
+- `src/assets/projects/`: cinco capturas locales WebP de sitios públicos actuales. No son capturas históricas ni imágenes generadas. Las originales de QA quedan en `.qa/project-originals/`, fuera de Git.
+- `src/components/ProjectCard.astro`: tarjetas estáticas con imágenes adaptables, tecnologías y enlaces.
+- `src/pages/proyectos/[slug].astro`: genera las cuatro páginas de detalle durante el build. El caso Grupo México incluye dos ejemplos visuales, los 16 enlaces y una descripción de las dos aplicaciones privadas, sin publicar pantallas ni datos internos.
+- `src/pages/index.astro`: presentación, proyectos, experiencia, sobre mí, tecnologías y contacto. No necesita JavaScript para mostrar o recorrer contenido.
+- `src/assets/abner-tovar.jpg`: foto original, conservada sin alterar la apariencia. Astro genera WebP adaptables de 320 y 460 px.
 - `src/components/Navigation.astro` y `Footer.astro`: navegación y marca.
-- `src/layouts/BaseLayout.astro`: idioma, metadatos, enlace para saltar al contenido y estructura común.
-- `src/styles/global.css`: tokens de Tailwind 4, componentes visuales y adaptación móvil.
-- `public/daniel-balderas-cv.pdf`: nueva versión del CV proporcionada por el propietario; se conserva la ruta para mantener los enlaces de descarga.
-- `public/favicon.svg`: monograma de la marca.
-- `src/pages/404.astro`: página de error personalizada.
+- `src/layouts/BaseLayout.astro`: idioma, metadatos, canonical y enlace para saltar al contenido.
+- `src/styles/global.css`: tokens Tailwind 4, componentes visuales y adaptación móvil.
+- `public/abner-tovar-cv.pdf`: CV vigente con el nombre público Abner Tovar e inglés B1. El contenido profesional se conserva; la descarga usa `/abner-tovar-cv.pdf`.
+- `src/pages/404.astro` y `public/favicon.svg`: página de error e icono.
 
-### Sustituir proyectos
+### Actualizar textos, capturas y enlaces
 
-Edita `projects` en `src/data/portfolio.ts`. Cada proyecto tiene nombre, categoría, descripción, tecnologías, explicación y una vista conceptual (`dashboard`, `store` o `learning`). Para incorporar capturas reales, adapta `ProjectPreview` en `ProjectGallery.tsx` y agrega imágenes locales con texto alternativo.
+Edita `projects` en `src/data/projects.ts`. Cada objeto contiene `slug`, contexto de participación, descripción de unas 30–45 palabras, tecnologías confirmadas, alcance opcional, sitio público, captura y secciones del caso. `seoTitle` y `seoDescription` definen el título y el resumen únicos del caso para buscadores y redes sociales. El `slug` determina `/proyectos/<slug>/`. El grupo de centros comerciales se mantiene en `shoppingCenters`; el proyecto histórico en `historicalProject`.
 
-Los campos opcionales `demoUrl` y `codeUrl` muestran enlaces solo si tienen valor. No hay enlaces ficticios. Al sustituir todos los ejemplos por trabajos reales, actualiza las etiquetas «Ejemplo», la nota de conceptos y la introducción de la sección en `index.astro`. No publiques métricas ni aportaciones que no puedas verificar.
+Guarda nuevas capturas en `src/assets/projects/`, impórtalas en ese archivo y actualiza `image.src`, `alt`, `caption`, `sourceUrl` y la fecha de captura. Si cambian en distintas fechas, separa las fechas por imagen antes de publicarlas. Astro genera variantes WebP locales con dimensiones explícitas; las tarjetas usan una proporción 16:9 sin recortar contenido. No hay servicios externos de capturas ni filtros con JavaScript.
 
-Para actualizar el CV, sustituye el PDF conservando su nombre o cambia `profile.cv`. Revisa los datos de contacto públicos antes de publicar. El sitio no utiliza formularios ni servicios externos: el correo abre el cliente de email y los perfiles sociales abren sus páginas.
+No deduzcas la autoría ni las tecnologías a partir del sitio público. Mantén las aclaraciones: el sistema de citas de Médica Fértil fue reemplazado; Interamérica es una colaboración parcial; Loro Granada acredita el diseño a su equipo. El archivo de Loro Granada no recupera el video del inicio, por lo que se presenta de forma tipográfica. El 18 % de ventas corresponde a un e-commerce sin identificar, con atribución al cliente y periodo de cinco meses; no está relacionado con los casos destacados.
 
-### Contenido profesional y fotografía
+Para actualizar el CV, sustituye el PDF conservando su nombre o cambia `profile.cv`. Para cambiar la fotografía, sustituye el archivo y revisa dimensiones, texto alternativo y encuadre. Contacto usa correo, LinkedIn y GitHub; no hay formularios ni envío de datos desde el sitio.
 
-La redacción se adapta del CV actualizado en primera persona. Las tres aportaciones se presentan una vez y la experiencia desarrolla las responsabilidades complementarias. El 18 % de crecimiento en ventas se atribuye al cliente y conserva el periodo de cinco meses; no se presenta como una relación causal demostrada. La coordinación residencial aparece como experiencia adicional, separada del recorrido frontend.
+### SEO y metadatos
 
-Para cambiar la foto, sustituye el archivo en `src/assets/` y revisa el texto alternativo, las dimensiones y el encuadre. El tratamiento visual se realiza con CSS; la fotografía mantiene su apariencia original. El retrato pasa a una composición compacta encima de la presentación en móvil. Las microinteracciones respetan `prefers-reduced-motion`.
+La portada y cada caso tienen título y descripción propios. `BaseLayout.astro` genera canonical, Open Graph y tarjetas sociales con imágenes locales y texto alternativo; la portada utiliza el retrato y cada caso su captura. La 404 conserva `noindex, follow` y no declara canonical.
 
-La evolución visual y de contenido se entrega localmente, sin commit ni despliegue. El dominio de producción descrito abajo corresponde al despliegue anterior hasta que se publique esta revisión.
+`src/pages/sitemap.xml.ts` genera las cinco URL canónicas indexables a partir de los proyectos; no incluye 404 ni PDF. `src/pages/robots.txt.ts` permite rastreo y referencia ese sitemap. Ambos se generan de forma estática, sin dependencias adicionales, usando `site` de Astro. No se incluyen fechas de actualización inferidas ni datos estructurados no necesarios.
 
-### Diseño
+Criterios consultados: [títulos y metadatos](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics), [canonical](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls) y [sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap). Las verificaciones locales no confirman indexación ni posicionamiento en Google; no se envió el sitemap ni se utilizó Search Console.
 
-La referencia consultada [porfolio.dev](https://porfolio.dev/) inspira la jerarquía profesional, la experiencia cronológica y el acceso directo a contacto y CV. De [Javier Miz](https://www.javiermiz.com/cv) se retoma la claridad curricular y de [Jonathan Gómez](https://jonathangomz.github.io/) el lenguaje visual técnico y los detalles desplegables. Las tres referencias se consultaron; las dos últimas mediante navegador. La composición, la identidad visual y las ilustraciones de proyectos se desarrollaron para este portafolio. No se incorporan fotografías de terceros, fuentes remotas ni bibliotecas de iconos.
+### Diseño y alcance de esta entrega
+
+Se conserva la identidad oscura y lima, el retrato y la composición del portafolio. Los proyectos pasan antes de la experiencia; se eliminaron las tres propuestas ficticias, sus ilustraciones CSS y el componente de filtros. Las microinteracciones y el desplazamiento respetan movimiento reducido. Astro renderiza todo el contenido y los casos de forma estática; la integración React sigue disponible para futuras interacciones que necesiten estado. No se añadieron dependencias ni adaptadores y el lockfile se conserva.
+
+La referencia [porfolio.dev](https://porfolio.dev/) orienta la jerarquía y la claridad de lectura. La composición de este portafolio es propia; las capturas pertenecen a los proyectos y se identifican como actuales.
+
+Esta actualización se entrega exclusivamente de forma local: sin commit, push ni despliegue. La configuración de producción descrita abajo corresponde a etapas anteriores.
 
 ## Publicación en Vercel
 

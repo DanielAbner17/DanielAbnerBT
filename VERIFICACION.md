@@ -1,3 +1,57 @@
+# Nombre público: Abner Tovar
+
+Fecha: 21 de octubre de 2026.
+
+- Nombre visible, textos alternativos, etiquetas accesibles, autor, títulos y metadatos sociales actualizados a Abner Tovar. Monograma de cabecera, pie e icono actualizado a at.
+- Retrato renombrado a src/assets/abner-tovar.jpg y descarga a public/abner-tovar-cv.pdf, con todas las referencias actualizadas.
+- CV: nombre y metadatos modificados; dos páginas, enlaces y contenido profesional conservados. Texto completo cotejado contra el original permitiendo únicamente la sustitución del nombre; ambas páginas renderizadas y revisadas. El área bajo el encabezado de la primera página no presenta diferencias visuales con el original. El documento ya no es una copia binariamente idéntica al original.
+- Se conservan el correo, GitHub, LinkedIn y el dominio de producción reales. Las referencias históricas de los registros anteriores describen los archivos y entregas originales.
+- npm run format y npm run validate aprobados; comprobadas las referencias del build y la ausencia del nombre anterior en textos públicos, excepto identificadores de contacto y dominio.
+- Entrega exclusivamente local, sin commits, push ni despliegue.
+
+---
+
+# Revisión editorial y SEO local
+
+Fecha: 21 de octubre de 2026. Rama: `feat/portafolio-daniel`.
+
+- Se preservó la actualización local de proyectos y el CV. Se corrigieron artículos, puntuación y consistencia, se resumieron tarjetas y detalles y se sustituyeron encabezados genéricos por títulos descriptivos. No se modificaron estilos, fechas, empresas, tecnologías ni métricas.
+- El H1 principal identifica el rol de desarrollador frontend. Se mantienen las atribuciones de Interamérica, Loro Granada y el sistema de citas reemplazado, así como el 18 % reportado por el cliente durante cinco meses, sin asignarlo a un caso concreto.
+- Títulos y descripciones únicos para portada y cuatro casos; las descripciones tienen entre 145 y 153 caracteres. La 404 tiene metadatos propios y noindex. Un H1 por página y jerarquía sin saltos en las seis páginas HTML.
+- Canonical y og:url coherentes con el dominio configurado. Open Graph y tarjetas sociales con título, descripción, imagen absoluta y texto alternativo. Se verificó que las imágenes sociales existen en dist.
+- Sitemap estático con las cinco URL canónicas indexables, sin 404 ni PDF. Robots permite rastreo y referencia el sitemap. Sin dependencias nuevas ni cambios al lockfile.
+- `npm run format` y `npm run validate` aprobados: cero errores, advertencias e indicaciones de Astro; tipos, lint, formato y build correctos. Se generan seis páginas HTML y dos recursos estáticos nuevos: robots.txt y sitemap.xml.
+- Comprobación del build: enlaces internos, anclas y recursos locales sin faltantes; CV idéntico al original y páginas sin scripts ejecutables.
+- Revisión visual en Chromium de escritorio y lectura móvil. Portada y cuatro casos a 390 y 320 px útiles, sin desbordamiento horizontal. Capturas locales: `.qa/editorial-desktop.png` y `.qa/editorial-mobile.png`. Los marcos temporales de QA se eliminaron del build final.
+- Límites: sin pruebas en dispositivos físicos, auditoría con lector de pantalla, Lighthouse ni validación real de tarjetas en redes. Sin comprobación de indexación o posicionamiento, envío de sitemap a Google o cambios en Search Console.
+- Entrega local: sin commits, push, GitHub Actions ni despliegue en Vercel.
+
+---
+
+# Actualización local: proyectos reales
+
+Fecha: 20–21 de octubre de 2026. Rama: `feat/portafolio-daniel`.
+
+- Estado inicial revisado: se conservó el ajuste local a inglés B1. Sin commits, push ni despliegues en esta entrega.
+- Cuatro casos reales: Grupo México, Médica Fértil, Refabulare e Interamérica. Cada caso tiene página estática, contexto, responsabilidad, tecnologías y fuentes de capturas. Grupo México reúne los 16 enlaces y dos ejemplos visuales; las aplicaciones privadas solo se describen.
+- Capturas reales del 20 de octubre guardadas como WebP locales y variantes adaptables generadas por Astro. Loro Granada se presenta sin captura ficticia y con enlace al archivo verificado del 15 de noviembre de 2022. El video de su inicio no se recuperó.
+- Se eliminaron los conceptos y sus ilustraciones, los filtros y la hidratación de la galería. La portada prioriza proyectos y sintetiza experiencia y sobre mí. La coordinación residencial conserva el carácter complementario.
+- CV vigente «Daniel Balderas CV Frontend ES.pdf» en la ruta anterior, 105496 bytes. SHA-256 de origen, copia pública y build coincidentes. No se modificó el PDF original.
+- `npm run format` y `npm run validate`: tipos, lint, formato y build estático aprobados. Se generan seis páginas, incluidos cuatro casos y la 404. Sin dependencias ni adaptadores nuevos; package.json y package-lock.json se conservan.
+- Build: 37 rutas y recursos locales referenciados comprobados, incluidos srcset, estilos, PDF y anclas, sin destinos faltantes. Las seis páginas generadas contienen cero scripts: el contenido, las imágenes y la navegación no dependen de JavaScript.
+- Navegador Chromium: presentación y proyectos en escritorio; portada y los cuatro casos en marcos móviles con ancho útil real de 390 y 320 px, sin desbordamiento horizontal del documento. Se revisó la composición de tarjetas y detalles. Son vistas de navegador, no pruebas en dispositivos físicos.
+- Teclado: Tab muestra el enlace de salto con foco visible; Enter coloca el foco en main. Tab/Enter llevan a Proyectos y abren el caso de Grupo México. Se inspeccionaron nombres y destinos de contacto y navegación. No se activaron clientes de correo ni se enviaron formularios.
+- Veinte URLs públicas de proyectos devolvieron HTTP 200 mediante HEAD; las cinco capturas se obtuvieron navegando los sitios. El archivo de Loro Granada se abrió y su contenido corresponde a la agencia investigada. Las respuestas HTTP solo comprueban disponibilidad en ese momento, no autoría ni todas las funcionalidades.
+- Las capturas actuales no son evidencia histórica. En Médica Fértil se aclara que el sistema propio fue reemplazado; la captura es del sitio público. Interamérica muestra Recursos en inglés tras la redirección de esa sección. El 18 % conserva atribución al cliente y cinco meses, sin asociarlo a los casos destacados.
+- Pendiente de documentación, sin bloquear esta entrega: el video histórico de Loro Granada, la relación de la métrica del 18 % con un proyecto identificable y el detalle técnico de las plataformas privadas. No se completaron esos datos por inferencia.
+- Movimiento reducido respetado en CSS; no se emuló la preferencia. No se realizaron Lighthouse, auditoría con lector de pantalla, Safari, Firefox ni comprobaciones funcionales privadas.
+- Capturas de entrega: `.qa/portfolio-desktop.png`, `.qa/portfolio-mobile.png` y `.qa/portfolio-preview.jpg`. La página de marcos móviles se usó únicamente en dist y se retiró mediante el build final; no existe en public ni en las fuentes.
+- GitHub Actions y Vercel: no ejecutados en esta tarea. Las comprobaciones anteriores son locales y las consultas a sitios de terceros no constituyen un despliegue del portafolio.
+
+Los registros siguientes corresponden a entregas anteriores.
+
+---
+
 # Evolución local: fotografía y nuevo CV
 
 Fecha: 16 de octubre de 2026. Rama: `feat/portafolio-daniel`.

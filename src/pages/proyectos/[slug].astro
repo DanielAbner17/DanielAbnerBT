@@ -1,0 +1,171 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { captureDate, projects, shoppingCenters } from '../../data/projects';
+import type { Project } from '../../data/projects';
+import { profile } from '../../data/portfolio';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+---
+
+<BaseLayout
+  title={project.seoTitle}
+  description={project.seoDescription}
+  socialImage={project.image.src}
+  socialImageAlt={project.image.alt}
+>
+  <article class="shell case-page">
+    <a class="text-link case-back" href="/#proyectos">
+      <span aria-hidden="true">←</span> Todos los proyectos
+    </a>
+    <header class="case-heading">
+      <p class="eyebrow">{project.context}</p>
+      <h1>{project.name}</h1>
+      <p class="case-lead">{project.description}</p>
+      <ul class="tags" aria-label="Tecnologías confirmadas">
+        {project.technologies.map((tag) => (
+          <li>{tag}</li>
+        ))}
+      </ul>
+      {project.technologyScope && (
+        <p class="work-scope">{project.technologyScope}</p>
+      )}
+      <a
+        class="button-secondary"
+        href={project.siteUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {project.slug === 'grupo-mexico'
+          ? 'Visitar Ciudadela'
+          : `Visitar ${project.name}`}{' '}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+    <figure class="case-image">
+      <Image
+        src={project.image.src}
+        alt={project.image.alt}
+        widths={[640, 960, 1111]}
+        sizes="(max-width: 1050px) calc(100vw - 40px), 1160px"
+        format="webp"
+        quality={85}
+        loading="eager"
+      />
+      <figcaption>
+        {project.image.caption} · Captura del {captureDate}.{' '}
+        <a
+          href={project.image.sourceUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Ver sitio de la captura: ${project.image.caption}`}
+        >
+          Ver fuente <span aria-hidden="true">↗</span>
+        </a>
+      </figcaption>
+    </figure>
+    <div class="case-sections">
+      {project.sections.map((section, index) => (
+        <section class="case-section" aria-labelledby={`section-${index}`}>
+          <h2 id={`section-${index}`}>
+            <span aria-hidden="true">0{index + 1} /</span> {section.title}
+          </h2>
+          <p>{section.text}</p>
+        </section>
+      ))}
+    </div>
+    {project.additionalImage && (
+      <figure class="case-image case-secondary-image">
+        <Image
+          src={project.additionalImage.src}
+          alt={project.additionalImage.alt}
+          widths={[640, 960, 1265]}
+          sizes="(max-width: 1050px) calc(100vw - 40px), 1160px"
+          format="webp"
+          quality={85}
+          loading="lazy"
+        />
+        <figcaption>
+          {project.additionalImage.caption} · Captura del {captureDate}.{' '}
+          <a
+            href={project.additionalImage.sourceUrl}
+            aria-label={`Ver sitio de la captura: ${project.additionalImage.caption}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ver fuente <span aria-hidden="true">↗</span>
+          </a>
+        </figcaption>
+      </figure>
+    )}
+    {project.slug === 'grupo-mexico' && (
+      <>
+        <section class="case-directory" aria-labelledby="directory-title">
+          <p class="eyebrow">EL CONJUNTO COMPLETO</p>
+          <h2 id="directory-title">Los 16 centros comerciales.</h2>
+          <p>
+            Enlaces a los sitios públicos actuales. Las funcionalidades y
+            tecnologías pueden variar entre ellos.
+          </p>
+          <ol class="center-list">
+            {shoppingCenters.map(([name, url], index) => (
+              <li>
+                <a href={url} target="_blank" rel="noreferrer">
+                  <span aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  {name}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+        <aside class="private-work" aria-labelledby="private-title">
+          <p class="eyebrow">TAMBIÉN EN GRUPO MÉXICO</p>
+          <h2 id="private-title">Aplicaciones internas.</h2>
+          <div>
+            <section>
+              <h3>
+                <strong>200+</strong> usuarios
+              </h3>
+              <p>
+                Diseñé y desarrollé la plataforma de mejora continua, con
+                autenticación, permisos por rol y contenido colaborativo.
+              </p>
+            </section>
+            <section>
+              <h3>Reportes para inversionistas</h3>
+              <p>
+                También trabajé en una plataforma interna de reportes para
+                inversionistas.
+              </p>
+            </section>
+          </div>
+          <p class="work-scope">
+            Ambas plataformas son privadas. No se publican capturas, enlaces de
+            acceso ni datos internos.
+          </p>
+        </aside>
+      </>
+    )}
+    <footer class="case-footer">
+      <p>¿Te interesa cómo puedo aportar a tu equipo?</p>
+      <a class="button-primary" href={`mailto:${profile.email}`}>
+        Conversemos <span aria-hidden="true">↗</span>
+      </a>
+      <a class="text-link" href="/#proyectos">
+        Volver a proyectos <span aria-hidden="true">→</span>
+      </a>
+    </footer>
+  </article>
+</BaseLayout>
